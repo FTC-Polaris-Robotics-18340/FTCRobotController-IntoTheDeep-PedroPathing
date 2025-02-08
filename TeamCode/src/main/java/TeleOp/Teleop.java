@@ -6,8 +6,8 @@ import com.arcrobotics.ftclib.gamepad.GamepadKeys;
 import com.qualcomm.robotcore.eventloop.opmode.LinearOpMode;
 import com.qualcomm.robotcore.eventloop.opmode.TeleOp;
 
-import org.firstinspires.ftc.teamcode.Common.Extension;
-import org.firstinspires.ftc.teamcode.Common.Lift;
+import Common.Extension;
+import Common.Lift;
 
 @TeleOp(name = "Driver Teleop")
 public class Teleop extends LinearOpMode {

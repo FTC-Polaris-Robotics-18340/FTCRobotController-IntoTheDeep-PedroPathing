@@ -1,11 +1,11 @@
 package Common;
 
-import static org.firstinspires.ftc.teamcode.Common.Constants.TICKS_TO_INCHES_LIFT;
+import static Common.Constants.TICKS_TO_INCHES_LIFT;
 
 import androidx.annotation.NonNull;
 
 import com.acmerobotics.dashboard.telemetry.TelemetryPacket;
-import com.acmerobotics.roadrunner.Action;
+//import com.acmerobotics.roadrunner.Action;
 import com.arcrobotics.ftclib.hardware.motors.Motor;
 import com.arcrobotics.ftclib.hardware.motors.MotorEx;
 import com.arcrobotics.ftclib.hardware.motors.MotorGroup;
@@ -86,161 +86,161 @@ public class Lift {
     }
 
 
-    public Action SlidesToBar() {
-        return new Action() {
-            private boolean initialized = false;
-
-            @Override
-            public boolean run(@NonNull TelemetryPacket packet) {
-                if (!initialized) {
-
-                    SlideLeft.set(0.8);
-                    SlideRight.set(-0.8);
-                    initialized = true;
-                }
-
-                double pos = SlideLeft.getCurrentPosition();
-                packet.put("liftPos", pos);
-                if (pos == toTicks(30))  {
-                    SlideLeft.set(0.1);
-
-                    SlideRight.set(-0.1);
-                    return true;
-                } else {
-                    SlideLeft.set(0.8);
-                    SlideRight.set(-0.8);
-                    return false;
-                }
-            }
-        };
-    }
-    public Action SlidesToBar_new() {
-        return new Action() {
-            private boolean initialized = false;
-
-            @Override
-            public boolean run(@NonNull TelemetryPacket packet) {
-                if (!initialized) {
-                    SlideLeft.set(0.9);
-                    SlideRight.set(-0.9);
-                    initialized = true;
-                }
-
-                double pos = SlideLeft.getCurrentPosition();
-                packet.put("liftPos", pos);
-                if (pos >= toTicks(29)) {
-                    SlideLeft.set(0.15);
-                    SlideRight.set(-0.15);
-                    return false;
-                }
-                return true;
-            }
-        };
-    }
-    public Action SlidesDown_new() {
-        return new Action() {
-            private boolean initialized = false;
-
-            @Override
-            public boolean run(@NonNull TelemetryPacket packet) {
-                if (!initialized) {
-                    SlideLeft.set(-0.5);
-                    SlideRight.set(0.5);
-                    initialized = true;
-                }
-
-                double pos = SlideLeft.getCurrentPosition();
-                packet.put("liftPos", pos);
-                if (pos <= toTicks(0.5)) {
-                    SlideLeft.set(0);
-                    SlideRight.set(0);
-                    return false;
-                }
-                return true;
-            }
-        };
-    }
-
-
-
-
-    public Action FirstBar() {
-        return new Action() {
-            private boolean initialized = false;
-
-            @Override
-            public boolean run(@NonNull TelemetryPacket packet) {
-                SlideLeft.set(0.8);
-                SlideRight.set(-0.8);
-                double pos = SlideLeft.getCurrentPosition();
-               if (pos>=toInches(8)) {
-                   SlideLeft.set(0);
-                   SlideRight.set(0);
-                }
-                return false;
-            }
-        };
-    }
-
-
-
-    public Action SlidesToNet() {
-        return new Action() {
-            private boolean initialized = false;
-
-            @Override
-            public boolean run(@NonNull TelemetryPacket packet) {
-                if (!initialized) {
-                    SlideLeft.set(0.9);
-                    SlideRight.set(-0.9);
-                    initialized = true;
-                }
-
-                double pos = SlideLeft.getCurrentPosition();
-                packet.put("liftPos", pos);
-                if (pos >= toTicks(45.5)) {
-                    SlideLeft.set(0.15);
-                    SlideRight.set(-0.15);
-                    return false;
-                }
-                return true;
-            }
-        };
-    }
-
-
-    public Action SlidesDown() {
-        return new Action() {
-            private boolean initialized = false;
-
-            @Override
-            public boolean run(@NonNull TelemetryPacket packet) {
-                if (!initialized) {
-                    SlideLeft.set(0.8);
-                    SlideRight.set(-0.8);
-                    initialized = true;
-                }
-
-                double pos = SlideLeft.getCurrentPosition();
-                packet.put("liftPos", pos);
-                if (pos > toTicks(1)) {
-                    return true;
-                } else {
-                    SlideLeft.set(0.15);
-                    SlideRight.set(-0.2);
-                    return false;
-                }
-            }
-        };
-    }
-
-    public Action resetEncoder(){
-        return new Action() {
-            @Override
-            public boolean run(@NonNull TelemetryPacket packet){
-                SlideLeft.resetEncoder();
-                return false;
-            }
-        };
-    }
+//    public Action SlidesToBar() {
+//        return new Action() {
+//            private boolean initialized = false;
+//
+//            @Override
+//            public boolean run(@NonNull TelemetryPacket packet) {
+//                if (!initialized) {
+//
+//                    SlideLeft.set(0.8);
+//                    SlideRight.set(-0.8);
+//                    initialized = true;
+//                }
+//
+//                double pos = SlideLeft.getCurrentPosition();
+//                packet.put("liftPos", pos);
+//                if (pos == toTicks(30))  {
+//                    SlideLeft.set(0.1);
+//
+//                    SlideRight.set(-0.1);
+//                    return true;
+//                } else {
+//                    SlideLeft.set(0.8);
+//                    SlideRight.set(-0.8);
+//                    return false;
+//                }
+//            }
+//        };
+//    }
+//    public Action SlidesToBar_new() {
+//        return new Action() {
+//            private boolean initialized = false;
+//
+//            @Override
+//            public boolean run(@NonNull TelemetryPacket packet) {
+//                if (!initialized) {
+//                    SlideLeft.set(0.9);
+//                    SlideRight.set(-0.9);
+//                    initialized = true;
+//                }
+//
+//                double pos = SlideLeft.getCurrentPosition();
+//                packet.put("liftPos", pos);
+//                if (pos >= toTicks(29)) {
+//                    SlideLeft.set(0.15);
+//                    SlideRight.set(-0.15);
+//                    return false;
+//                }
+//                return true;
+//            }
+//        };
+//    }
+//    public Action SlidesDown_new() {
+//        return new Action() {
+//            private boolean initialized = false;
+//
+//            @Override
+//            public boolean run(@NonNull TelemetryPacket packet) {
+//                if (!initialized) {
+//                    SlideLeft.set(-0.5);
+//                    SlideRight.set(0.5);
+//                    initialized = true;
+//                }
+//
+//                double pos = SlideLeft.getCurrentPosition();
+//                packet.put("liftPos", pos);
+//                if (pos <= toTicks(0.5)) {
+//                    SlideLeft.set(0);
+//                    SlideRight.set(0);
+//                    return false;
+//                }
+//                return true;
+//            }
+//        };
+//    }
+//
+//
+//
+//
+//    public Action FirstBar() {
+//        return new Action() {
+//            private boolean initialized = false;
+//
+//            @Override
+//            public boolean run(@NonNull TelemetryPacket packet) {
+//                SlideLeft.set(0.8);
+//                SlideRight.set(-0.8);
+//                double pos = SlideLeft.getCurrentPosition();
+//               if (pos>=toInches(8)) {
+//                   SlideLeft.set(0);
+//                   SlideRight.set(0);
+//                }
+//                return false;
+//            }
+//        };
+//    }
+//
+//
+//
+//    public Action SlidesToNet() {
+//        return new Action() {
+//            private boolean initialized = false;
+//
+//            @Override
+//            public boolean run(@NonNull TelemetryPacket packet) {
+//                if (!initialized) {
+//                    SlideLeft.set(0.9);
+//                    SlideRight.set(-0.9);
+//                    initialized = true;
+//                }
+//
+//                double pos = SlideLeft.getCurrentPosition();
+//                packet.put("liftPos", pos);
+//                if (pos >= toTicks(45.5)) {
+//                    SlideLeft.set(0.15);
+//                    SlideRight.set(-0.15);
+//                    return false;
+//                }
+//                return true;
+//            }
+//        };
+//    }
+//
+//
+//    public Action SlidesDown() {
+//        return new Action() {
+//            private boolean initialized = false;
+//
+//            @Override
+//            public boolean run(@NonNull TelemetryPacket packet) {
+//                if (!initialized) {
+//                    SlideLeft.set(0.8);
+//                    SlideRight.set(-0.8);
+//                    initialized = true;
+//                }
+//
+//                double pos = SlideLeft.getCurrentPosition();
+//                packet.put("liftPos", pos);
+//                if (pos > toTicks(1)) {
+//                    return true;
+//                } else {
+//                    SlideLeft.set(0.15);
+//                    SlideRight.set(-0.2);
+//                    return false;
+//                }
+//            }
+//        };
+//    }
+//
+//    public Action resetEncoder(){
+//        return new Action() {
+//            @Override
+//            public boolean run(@NonNull TelemetryPacket packet){
+//                SlideLeft.resetEncoder();
+//                return false;
+//            }
+//        };
+//    }
 }

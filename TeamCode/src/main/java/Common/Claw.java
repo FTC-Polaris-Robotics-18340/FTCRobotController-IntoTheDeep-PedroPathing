@@ -3,7 +3,7 @@ package Common;
 import androidx.annotation.NonNull;
 
 import com.acmerobotics.dashboard.telemetry.TelemetryPacket;
-import com.acmerobotics.roadrunner.Action;
+//import com.acmerobotics.roadrunner.Action;
 import com.arcrobotics.ftclib.hardware.SimpleServo;
 import com.qualcomm.robotcore.hardware.HardwareMap;
 
@@ -29,23 +29,23 @@ public class Claw {
         Claw.setPosition(0);
     }
 
-    public Action ClawClose() {
-        return new Action() {
-            @Override
-            public boolean run(@NonNull TelemetryPacket packet) {
-                Claw.setPosition(0);
-                return false;
-            }
-        };
-    }
-
-    public Action ClawOpen() {
-        return new Action() {
-            @Override
-            public boolean run(@NonNull TelemetryPacket packet) {
-                Claw.setPosition(1);
-                return false;
-            }
-        };
-    }
+//    public Action ClawClose() {
+//        return new Action() {
+//            @Override
+//            public boolean run(@NonNull TelemetryPacket packet) {
+//                Claw.setPosition(0);
+//                return false;
+//            }
+//        };
+//    }
+//
+//    public Action ClawOpen() {
+//        return new Action() {
+//            @Override
+//            public boolean run(@NonNull TelemetryPacket packet) {
+//                Claw.setPosition(1);
+//                return false;
+//            }
+//        };
+//    }
 }

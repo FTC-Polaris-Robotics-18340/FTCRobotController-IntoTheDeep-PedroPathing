@@ -4,14 +4,14 @@ package Common;
 import androidx.annotation.NonNull;
 
 import com.acmerobotics.dashboard.telemetry.TelemetryPacket;
-import com.acmerobotics.roadrunner.SleepAction;
+//import com.acmerobotics.roadrunner.SleepAction;
 import com.arcrobotics.ftclib.hardware.SimpleServo;
 import com.arcrobotics.ftclib.hardware.motors.Motor;
 import com.arcrobotics.ftclib.hardware.motors.MotorEx;
 import com.arcrobotics.ftclib.hardware.motors.MotorGroup;
 import com.arcrobotics.ftclib.util.Timing;
 import com.qualcomm.robotcore.hardware.HardwareMap;
-import com.acmerobotics.roadrunner.Action;
+//import com.acmerobotics.roadrunner.Action;
 
 
 public class Extension {
@@ -42,83 +42,83 @@ public class Extension {
 //        extension = new MotorEx(hardwareMap, "EL");
     }
 
-    public Action Extend (){
-        return new Action (){
-            private boolean initialized = false;
-            @Override
-            public boolean run(@NonNull TelemetryPacket packet) {
-                long startTime = 0;
-                if (!initialized) {
-                    ExtensionRight.set(1);
-                    ExtensionLeft.set(-1);
-                    initialized = true;
-                    startTime = System.currentTimeMillis();
-                }
-                double pos = ExtensionLeft.getCurrentPosition();
-                //TODO: replace time with actual time
-//                final int extendOutTime = 1500;
-
-//                try {
-//                    Thread.sleep(Constants.ExtensionTime);
-//                } catch (InterruptedException e) {
-//                    throw new RuntimeException(e);
+//    public Action Extend (){
+//        return new Action (){
+//            private boolean initialized = false;
+//            @Override
+//            public boolean run(@NonNull TelemetryPacket packet) {
+//                long startTime = 0;
+//                if (!initialized) {
+//                    ExtensionRight.set(1);
+//                    ExtensionLeft.set(-1);
+//                    initialized = true;
+//                    startTime = System.currentTimeMillis();
 //                }
-                if (System.currentTimeMillis() >= startTime + Constants.ExtensionTime) {
-                    packet.put("extendPos", System.currentTimeMillis() - startTime );
-                    return true;
-
-                }
-                else {
-                    ExtensionLeft.set(0);
-                    ExtensionRight.set(0);
-                    return false;
-                }
-
-            }
-
-        };
-
-
-    }
-
-    public Action Retract (){
-        return new Action (){
-            private boolean initialized = false;
-            @Override
-            public boolean run(@NonNull TelemetryPacket packet) {
-                long startTime = 0;
-                if (!initialized) {
-                    ExtensionRight.set(-1);
-                    ExtensionLeft.set(1);
-                    initialized = true;
-                    startTime = System.currentTimeMillis();
-                }
-                double pos = ExtensionLeft.getCurrentPosition();
-                //TODO: replace time with actual time
-//                final int extendOutTime = 1500;
-
-//                try {
-//                    Thread.sleep(Constants.ExtensionTime);
-//                } catch (InterruptedException e) {
-//                    throw new RuntimeException(e);
+//                double pos = ExtensionLeft.getCurrentPosition();
+//                //TODO: replace time with actual time
+////                final int extendOutTime = 1500;
+//
+////                try {
+////                    Thread.sleep(Constants.ExtensionTime);
+////                } catch (InterruptedException e) {
+////                    throw new RuntimeException(e);
+////                }
+//                if (System.currentTimeMillis() >= startTime + Constants.ExtensionTime) {
+//                    packet.put("extendPos", System.currentTimeMillis() - startTime );
+//                    return true;
+//
 //                }
-                if (System.currentTimeMillis() >= startTime + Constants.ExtensionTime) {
-                    packet.put("extendPos", System.currentTimeMillis() - startTime );
-                    return true;
+//                else {
+//                    ExtensionLeft.set(0);
+//                    ExtensionRight.set(0);
+//                    return false;
+//                }
+//
+//            }
+//
+//        };
+//
+//
+//    }
+//
+//    public Action Retract (){
+//        return new Action (){
+//            private boolean initialized = false;
+//            @Override
+//            public boolean run(@NonNull TelemetryPacket packet) {
+//                long startTime = 0;
+//                if (!initialized) {
+//                    ExtensionRight.set(-1);
+//                    ExtensionLeft.set(1);
+//                    initialized = true;
+//                    startTime = System.currentTimeMillis();
+//                }
+//                double pos = ExtensionLeft.getCurrentPosition();
+//                //TODO: replace time with actual time
+////                final int extendOutTime = 1500;
+//
+////                try {
+////                    Thread.sleep(Constants.ExtensionTime);
+////                } catch (InterruptedException e) {
+////                    throw new RuntimeException(e);
+////                }
+//                if (System.currentTimeMillis() >= startTime + Constants.ExtensionTime) {
+//                    packet.put("extendPos", System.currentTimeMillis() - startTime );
+//                    return true;
+//
+//                }
+//                else {
+//                    ExtensionLeft.set(0);
+//                    ExtensionRight.set(0);
+//                    return false;
+//                }
+//
+//            }
+//
+//        };
 
-                }
-                else {
-                    ExtensionLeft.set(0);
-                    ExtensionRight.set(0);
-                    return false;
-                }
 
-            }
-
-        };
-
-
-    }
+//    }
 
 //    public double getExtensionPosition() {
 //        return extension.getPosition();

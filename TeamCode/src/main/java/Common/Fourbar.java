@@ -3,7 +3,7 @@ package Common;
 import androidx.annotation.NonNull;
 
 import com.acmerobotics.dashboard.telemetry.TelemetryPacket;
-import com.acmerobotics.roadrunner.Action;
+//import com.acmerobotics.roadrunner.Action;
 import com.arcrobotics.ftclib.hardware.SimpleServo;
 import com.qualcomm.robotcore.hardware.HardwareMap;
 
@@ -27,24 +27,24 @@ public class Fourbar {
         four_bar.setPosition(0.5);
     }
 
-    public Action FourBarUp() {
-        return new Action() {
-            @Override
-            public boolean run(@NonNull TelemetryPacket packet) {
-                four_bar.setPosition(0.9);
-                return false;
-            }
-        };
-    }
+//    public Action FourBarUp() {
+//        return new Action() {
+//            @Override
+//            public boolean run(@NonNull TelemetryPacket packet) {
+//                four_bar.setPosition(0.9);
+//                return false;
+//            }
+//        };
+//    }
 
 
-    public Action FourBarDown() {
-        return new Action() {
-            @Override
-            public boolean run(@NonNull TelemetryPacket packet) {
-                four_bar.setPosition(0.2);
-                return false;
-            }
-        };
-    }
+//    public Action FourBarDown() {
+//        return new Action() {
+//            @Override
+//            public boolean run(@NonNull TelemetryPacket packet) {
+//                four_bar.setPosition(0.2);
+//                return false;
+//            }
+//        };
+//    }
 }
